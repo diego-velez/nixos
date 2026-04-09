@@ -89,6 +89,8 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         quickshell
         awww
         nixd
+        dracula-theme
+        dracula-icon-theme
     ];
 
     fonts.packages = with pkgs; [
