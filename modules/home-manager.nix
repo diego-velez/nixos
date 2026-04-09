@@ -6,7 +6,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {inherit inputs hostname;};
-            users.dvt = import ./_configs/home.nix;
+            users.dvt = import ./_home/home.nix;
         };
     };
 }
