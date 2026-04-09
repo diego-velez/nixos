@@ -44,10 +44,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
 
     programs.firefox.enable = lib.mkDefault true;
     programs.fish.enable = lib.mkDefault true;
-    programs.niri = {
-        enable = true;
-        package = pkgs.niri;
-    };
+    programs.niri.enable = true;
 
     nixpkgs.config.allowUnfree = lib.mkDefault true;
     nix.settings.experimental-features = lib.mkDefault ["nix-command" "flakes"];
