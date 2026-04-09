@@ -1,5 +1,5 @@
-{self, inputs, ...}: {
-    flake.nixosModules.dvt = {pkgs, lib, hostname, ...}: {
+{inputs, ...}: {
+    flake.nixosModules.dvt = {hostname, ...}: {
         imports = [ inputs.home-manager.nixosModules.home-manager ];
 
         home-manager = {

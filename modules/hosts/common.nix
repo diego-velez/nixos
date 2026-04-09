@@ -1,4 +1,4 @@
-{self, ...}: {
+{...}: {
 flake.nixosModules.common = {pkgs, lib, ...}: {
     time.timeZone = lib.mkDefault "America/Puerto_Rico";
 
@@ -40,7 +40,6 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         shell = pkgs.fish;
         description = "Diego Velez";
         extraGroups = ["networkmanager" "wheel" "input" "uinput"];
-        packages = with pkgs; [];
     };
 
     programs.firefox.enable = lib.mkDefault true;

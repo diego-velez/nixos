@@ -1,5 +1,5 @@
-{self, inputs, ...}: {
-    flake.nixosModules.laptopConf = {pkgs, lib, ...}: {
+{self, ...}: {
+    flake.nixosModules.laptopConf = {...}: {
         imports = [
             # ../common.nix
             self.nixosModules.common
