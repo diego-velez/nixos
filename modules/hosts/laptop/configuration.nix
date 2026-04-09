@@ -1,5 +1,5 @@
 {self, ...}: {
-    flake.nixosModules.laptopConf = {...}: {
+    flake.nixosModules.laptopConf = {pkgs, ...}: {
         imports = [
             # ../common.nix
             self.nixosModules.common
@@ -29,5 +29,13 @@
               };
             };
         };
+
+        users.users.dvt.extraGroups = ["video" "render" "nvidia"];
+
+        environment.systemPackages = with pkgs; [
+            (btop.override {cudaSupport = true;})
+            nvtopPackages.full
+            powertop
+        ];
     };
 }
