@@ -106,7 +106,5 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
     };
 
     services.openssh.enable = lib.mkDefault true;
-
-    system.stateVersion = lib.mkDefault "25.11";
 };
 }
