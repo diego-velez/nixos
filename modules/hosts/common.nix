@@ -67,9 +67,19 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         starship
     ];
 
-    fonts.packages = with pkgs; lib.mkDefault [
-        nerd-fonts.jetbrains-mono
+    fonts.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      ubuntu-sans
+      cm_unicode
+      corefonts
+      unifont
     ];
+
+    fonts.fontconfig.defaultFonts = {
+      serif = ["Ubuntu Sans"];
+      sansSerif = ["Ubuntu Sans"];
+      monospace = ["JetBrainsMono Nerd Font"];
+    };
 
     services.openssh.enable = lib.mkDefault true;
 
