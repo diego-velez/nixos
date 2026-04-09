@@ -12,7 +12,7 @@
             efiSysMountPoint = "/boot";
         };
 
-        networking.hostName = "nixos";
+        networking.hostName = "DVT_on_ROG";
         networking.networkmanager.enable = true;
     };
 }
