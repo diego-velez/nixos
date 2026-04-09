@@ -50,18 +50,29 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
     nix.settings.experimental-features = lib.mkDefault ["nix-command" "flakes"];
 
     environment.systemPackages = with pkgs; [
-        vim
         wget
-        neovim
         ripgrep
         zoxide
+        git
+        vim
+        neovim
         wezterm
         waybar
         fuzzel
-        git
         eza
         atuin
         starship
+        fortune
+        bat
+        fd
+        rhythmbox
+        thunar
+        fastfetch
+        zathura
+        swayidle
+        ungoogled-chromium
+        mpv
+        cowsay
     ];
 
     fonts.packages = with pkgs; [
