@@ -88,6 +88,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         syncthing
         quickshell
         awww
+        nixd
     ];
 
     fonts.packages = with pkgs; [

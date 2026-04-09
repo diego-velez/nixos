@@ -340,10 +340,8 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.nixd
     powerMenuScript
-  ]
-  ++ (if hostname == "laptop" then [ pkgs.kanata ] else [ ]);
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

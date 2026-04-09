@@ -40,6 +40,7 @@
             nvtopPackages.full
             powertop
             brightnessctl
+            kanata
         ];
     };
 }
