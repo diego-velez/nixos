@@ -13,6 +13,13 @@ let
       builtins.readFile ./scripts/power-menu
     );
   };
+  toggleWaybarScript = pkgs.writeShellApplication {
+    name = "toggle-waybar";
+    runtimeInputs = [ pkgs.waybar pkgs.procps pkgs.psmisc ];
+    text = builtins.replaceStrings [ "@waybar@" ] [ "${lib.getExe pkgs.waybar}" ] (
+      builtins.readFile ./scripts/toggle-waybar
+    );
+  };
 in
 {
   imports = [
@@ -38,12 +45,14 @@ in
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  xdg.configFile."waybar/config".text = import ./configs/waybar.nix {
+  xdg.configFile."waybar/style.css".source = ./configs/waybar/style.css;
+  xdg.configFile."waybar/toggle_wireguard_vpn".source = ./configs/waybar/toggle_wireguard_vpn;
+  xdg.configFile."waybar/config".text = import ./configs/waybar/config.nix {
     inherit hostname;
   };
 
   xdg.configFile."niri/config.kdl".text = import ./configs/niri.nix {
-    inherit hostname powerMenuScript;
+    inherit lib hostname powerMenuScript toggleWaybarScript;
   };
 
   xdg.configFile."quickshell".source = ./configs/quickshell;

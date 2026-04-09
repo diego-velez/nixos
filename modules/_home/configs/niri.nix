@@ -1,4 +1,4 @@
-{ hostname, powerMenuScript, ... }:
+{ lib, hostname, powerMenuScript, toggleWaybarScript, ... }:
 
 ''
   // This config is in the KDL format: https://kdl.dev
@@ -400,8 +400,8 @@
       Mod+R repeat=false hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
       Mod+E repeat=false hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
       Mod+B repeat=false hotkey-overlay-title="Run an Application: Zen" { spawn "~/.local/bin/zen/zen"; }
-      Mod+Q repeat=false { spawn "${powerMenuScript}/bin/power-menu"; }
-      Mod+H repeat=false { spawn-sh "~/.config/waybar/toggle_waybar"; }
+      Mod+Q repeat=false { spawn "${lib.getExe powerMenuScript}"; }
+      Mod+H repeat=false { spawn "${lib.getExe toggleWaybarScript}"; }
       Mod+L repeat=false { spawn-sh "~/.config/swayidle/screensaver run"; }
       Mod+V repeat=false { spawn-sh "clipman pick --max-items=100 -t STDOUT | fuzzel --dmenu | wl-copy" ; }
       Mod+M repeat=false { spawn-sh "~/.config/menus/menus" ; }

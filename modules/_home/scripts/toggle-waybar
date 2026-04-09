@@ -1,0 +1,11 @@
+#!/bin/bash
+
+WAYBAR="@waybar@"
+
+# Hide the bar
+if pgrep -x .waybar-wrapped > /dev/null; then
+    killall .waybar-wrapped
+# Show the bar
+else
+    $WAYBAR &
+fi
