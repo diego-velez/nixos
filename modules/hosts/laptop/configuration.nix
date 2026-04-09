@@ -39,6 +39,7 @@
             (btop.override {cudaSupport = true;})
             nvtopPackages.full
             powertop
+            brightnessctl
         ];
     };
 }

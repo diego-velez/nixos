@@ -73,6 +73,21 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         ungoogled-chromium
         mpv
         cowsay
+        keepassxc
+        ferdium
+        localsend
+        qalculate-gtk
+        onlyoffice-desktopeditors
+        xwayland-satellite
+        lazydocker
+        typst
+        libnotify
+        mako
+        wl-clipboard
+        clipman
+        syncthing
+        quickshell
+        awww
     ];
 
     fonts.packages = with pkgs; [
