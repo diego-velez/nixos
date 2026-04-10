@@ -91,6 +91,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         nixd
         dracula-theme
         dracula-icon-theme
+        psmisc
     ];
 
     fonts.packages = with pkgs; [
