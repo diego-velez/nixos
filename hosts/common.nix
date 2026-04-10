@@ -38,7 +38,7 @@
         isNormalUser = true;
         shell = pkgs.fish;
         description = "Diego Velez";
-        extraGroups = ["networkmanager" "wheel" "input" "uinput"];
+        extraGroups = ["networkmanager" "wheel" "input" "uinput" "docker"];
     };
 
     programs.firefox.enable = lib.mkDefault true;
@@ -108,4 +108,24 @@
     };
 
     services.openssh.enable = lib.mkDefault true;
+
+    # programs.nix-ld = {
+    #     enable = true;
+    #     libraries = with pkgsUnstable; [
+    #         stdenv.cc.cc.lib
+    #         zlib
+    #         openssl
+    #         curl
+    #         libgcc
+    #     ];
+    # };
+
+    virtualisation.docker = {
+        enable = false;
+
+        rootless = {
+            enable = true;
+            setSocketVariable = true;
+        };
+    };
 }
