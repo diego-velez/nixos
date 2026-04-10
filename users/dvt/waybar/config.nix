@@ -1,10 +1,10 @@
-{ hostname, ... }:
+{ machine, ... }:
 
 builtins.toJSON (
   {
     position = "top";
     height = 20;
-    width = if hostname == "desktop" then 2034 else 1896;
+    width = if machine == "desktop" then 2034 else 1896;
 
     reload_style_on_change = true;
     spacing = 0;
@@ -20,7 +20,7 @@ builtins.toJSON (
     modules-right = [
       "mpris"
     ]
-    ++ (if hostname == "laptop" then [ "battery" ] else [ ])
+    ++ (if machine == "laptop" then [ "battery" ] else [ ])
     ++ [
       "network"
       "custom/wireguard"
@@ -120,7 +120,7 @@ builtins.toJSON (
     };
   }
   // (
-    if hostname == "laptop" then
+    if machine == "laptop" then
       {
         battery = {
           interval = 5;

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, hostname, ...}: {
     imports = [
         ../common.nix
         ./hardware.nix
@@ -10,7 +10,7 @@
         efiSysMountPoint = "/boot";
     };
 
-    networking.hostName = "DVT_on_ROG";
+    networking.hostName = hostname;
     networking.networkmanager.enable = true;
 
     powerManagement.enable = true;

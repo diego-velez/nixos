@@ -1,5 +1,5 @@
-{lib, pkgs, hostname, ...}: {
-  xdg.configFile."kanata/config.kbd" = lib.mkIf (hostname == "laptop") {
+{lib, pkgs, machine, ...}: {
+  xdg.configFile."kanata/config.kbd" = lib.mkIf (machine == "laptop") {
     text = ''
       (defcfg
           process-unmapped-keys yes
@@ -40,7 +40,7 @@
     '';
   };
 
-  systemd.user.services.kanata = lib.mkIf (hostname == "laptop") {
+  systemd.user.services.kanata = lib.mkIf (machine == "laptop") {
     Unit = {
       Description = "Kanata Keyboard remapper";
       Documentation = "https://github.com/jtroo/kanata";
@@ -48,7 +48,7 @@
 
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.kanata}/bin/kanata --cfg %E/kanata/config.kbd";
+      ExecStart = "${lib.getExe pkgs.kanata} --cfg %E/kanata/config.kbd";
       Restart = "no";
     };
 

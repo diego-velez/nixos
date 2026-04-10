@@ -12,27 +12,26 @@
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-    pkgsUnstable = import nixpkgs-unstable { inherit system; };
-  in {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs pkgs pkgsUnstable;};
+    pkgsUnstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
+    mkSystem = machine: user: hostname: nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs pkgsUnstable hostname;};
       modules = [
         { nixpkgs.config.allowUnfree = true; }
 
-        ./modules/hosts/laptop/configuration.nix
+        ./hosts/${machine}/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-              inherit inputs pkgs pkgsUnstable;
-              hostname = "laptop";
+              inherit inputs pkgsUnstable machine;
             };
-            users.dvt = import ./modules/_home/home.nix;
+            users.${user} = ./users/${user}/home.nix;
           };
         }
       ];
     };
+  in {
+    nixosConfigurations.laptop = mkSystem "laptop" "dvt" "DVT_on_ROG";
   };
 }

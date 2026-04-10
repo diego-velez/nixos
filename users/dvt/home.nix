@@ -1,35 +1,34 @@
 {
   pkgs,
   lib,
+  machine,
   osConfig,
-  hostname,
   ...
 }:
 
 let
-  fuzzelFontSize = if hostname == "desktop" then "32" else "20";
+  fuzzelFontSize = if machine == "desktop" then "32" else "20";
   powerMenuScript = pkgs.writeShellApplication {
     name = "power-menu";
+    runtimeInputs = with pkgs; [ fuzzel procps ];
     text = builtins.replaceStrings [ "@fontSize@" ] [ fuzzelFontSize ] (
-      builtins.readFile ./scripts/power-menu
+      builtins.readFile ./scripts/power-menu.sh
     );
   };
   toggleWaybarScript = pkgs.writeShellApplication {
     name = "toggle-waybar";
-    runtimeInputs = [ pkgs.waybar pkgs.procps pkgs.psmisc ];
+    runtimeInputs = with pkgs; [ waybar procps psmisc ];
     text = builtins.replaceStrings [ "@waybar@" ] [ "${lib.getExe pkgs.waybar}" ] (
-      builtins.readFile ./scripts/toggle-waybar
+      builtins.readFile ./scripts/toggle-waybar.sh
     );
   };
 in
 {
   imports = [
-    ./configs/git.nix
-    ./configs/lazygit.nix
-    ./configs/starship.nix
-    ( import ./configs/kanata.nix {
-      inherit lib pkgs hostname;
-    } )
+    ./git.nix
+    ./lazygit.nix
+    ./starship.nix
+    ./kanata.nix
   ];
 
   home.username = "dvt";
@@ -44,21 +43,17 @@ in
     toggleWaybarScript
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    "waybar/style.css".source = ./configs/waybar/style.css;
-    "waybar/toggle_wireguard_vpn".source = ./configs/waybar/toggle_wireguard_vpn;
-    "waybar/config".text = import ./configs/waybar/config.nix {
-      inherit hostname;
-    };
-
-    "niri/config.kdl".text = import ./configs/niri.nix {
-      inherit lib hostname powerMenuScript toggleWaybarScript;
-    };
-
-    "quickshell".source = ./configs/quickshell;
+  xdg.configFile."waybar/style.css".source = ./waybar/style.css;
+  xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
+  xdg.configFile."waybar/config".text = import ./waybar/config.nix {
+    inherit machine;
   };
+
+  xdg.configFile."niri/config.kdl".text = import ./niri.nix {
+    inherit lib machine powerMenuScript toggleWaybarScript;
+  };
+
+  xdg.configFile."quickshell".source = ./quickshell;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

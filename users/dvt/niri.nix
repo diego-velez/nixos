@@ -1,4 +1,4 @@
-{ lib, hostname, powerMenuScript, toggleWaybarScript, ... }:
+{ lib, machine, powerMenuScript, toggleWaybarScript, ... }:
 
 ''
   // This config is in the KDL format: https://kdl.dev
@@ -22,7 +22,7 @@
 
   input {
   ${
-    if hostname == "laptop" then
+    if machine == "laptop" then
       ''
         touchpad {
             tap
@@ -80,7 +80,7 @@
           // The default preset widths are 1/3, 1/2 and 2/3 of the output.
 
   ${
-    if hostname == "desktop" then
+    if machine == "desktop" then
       ''
         proportion 0.2
         proportion 0.3
@@ -102,7 +102,7 @@
 
       // You can change the default width of the new windows.
   ${
-    if hostname == "desktop" then
+    if machine == "desktop" then
       ''
         default-column-width { proportion 0.4; }
       ''
@@ -253,7 +253,7 @@
   }
 
   ${
-    if hostname == "laptop" then
+    if machine == "laptop" then
       ''
         output "eDP-1" {
           mode "1920x1080@143.981"
@@ -319,7 +319,7 @@
       match app-id="org.gnome.Rhythmbox3"
       match app-id="org.wezfurlong.wezterm"
   ${
-    if hostname == "desktop" then
+    if machine == "desktop" then
       ''
         default-column-width { proportion 0.3; }
       ''

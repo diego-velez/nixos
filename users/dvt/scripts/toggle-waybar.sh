@@ -1,5 +1,3 @@
-#!/bin/bash
-
 WAYBAR="@waybar@"
 
 # Hide the bar

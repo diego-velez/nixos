@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-
 shutdown="Shutdown"
 shutdown_icon="\0icon\x1fsystem-shutdown"
 
