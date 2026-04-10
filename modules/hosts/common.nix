@@ -1,5 +1,4 @@
-{...}: {
-flake.nixosModules.common = {pkgs, lib, ...}: {
+{pkgs, pkgsUnstable, lib, ...}: {
     time.timeZone = lib.mkDefault "America/Puerto_Rico";
 
     i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
@@ -55,7 +54,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         zoxide
         git
         vim
-        neovim
+        pkgsUnstable.neovim
         wezterm
         waybar
         fuzzel
@@ -66,7 +65,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         bat
         fd
         rhythmbox
-        thunar
+        xfce.thunar
         fastfetch
         zathura
         swayidle
@@ -87,7 +86,7 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
         clipman
         syncthing
         quickshell
-        awww
+        swww
         nixd
         dracula-theme
         dracula-icon-theme
@@ -109,5 +108,4 @@ flake.nixosModules.common = {pkgs, lib, ...}: {
     };
 
     services.openssh.enable = lib.mkDefault true;
-};
 }

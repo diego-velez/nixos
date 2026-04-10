@@ -1,14 +1,38 @@
 {
-  description = "NixOS system and tools for DVT";
+  description = "NixOS system for DVT";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }
-    (inputs.import-tree ./modules);
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+    pkgsUnstable = import nixpkgs-unstable { inherit system; };
+  in {
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs pkgs pkgsUnstable;};
+      modules = [
+        { nixpkgs.config.allowUnfree = true; }
+
+        ./modules/hosts/laptop/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              inherit inputs pkgs pkgsUnstable;
+              hostname = "laptop";
+            };
+            users.dvt = import ./modules/_home/home.nix;
+          };
+        }
+      ];
+    };
+  };
 }

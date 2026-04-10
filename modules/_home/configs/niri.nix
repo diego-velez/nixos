@@ -211,7 +211,7 @@
   // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
   // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
   // TODO: I should remove setting the wallpaper here, and do it in the slideshow script
-  spawn-sh-at-startup "awww-daemon --quiet & sleep 0.1 && awww img \"$(find ~/Pictures/Wallpapers/ -type f | shuf -n 1)\""
+  spawn-sh-at-startup "swww-daemon --quiet & sleep 0.1 && swww img \"$(find ~/Pictures/Wallpapers/ -type f | shuf -n 1)\""
   spawn-sh-at-startup "~/.config/scripts/wallpaper_slideshow.sh &"
   spawn-sh-at-startup "~/.config/scripts/eye_break.sh &"
   spawn-at-startup "quickshell" "--daemonize"
