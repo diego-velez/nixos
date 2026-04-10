@@ -1,5 +1,5 @@
 {
-  description = "Description for the project";
+  description = "NixOS system and tools for DVT";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
