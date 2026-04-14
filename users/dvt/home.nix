@@ -14,6 +14,8 @@ let
     runtimeInputs = with pkgs; [
       fuzzel
       procps
+      dracula-theme
+      dracula-icon-theme
     ];
     text = builtins.replaceStrings [ "@fontSize@" ] [ fuzzelFontSize ] (
       builtins.readFile ./scripts/power-menu.sh
