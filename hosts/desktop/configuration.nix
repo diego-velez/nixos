@@ -1,23 +1,27 @@
-{pkgs, hostname, ...}: {
-    imports = [
-        ../common.nix
-        ./hardware.nix
-    ];
+{ pkgs, hostname, ... }:
+{
+  imports = [
+    ../common.nix
+    ./hardware.nix
+  ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-    };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+    efiSysMountPoint = "/boot";
+  };
 
-    networking.hostName = hostname;
-    networking.networkmanager.enable = true;
+  networking.hostName = hostname;
+  networking.networkmanager.enable = true;
 
-    users.users.dvt.extraGroups = ["video" "render"];
+  users.users.dvt.extraGroups = [
+    "video"
+    "render"
+  ];
 
-    environment.systemPackages = with pkgs; [
-        btop
-    ];
+  environment.systemPackages = with pkgs; [
+    btop-rocm
+  ];
 
-    system.stateVersion = "25.11";
+  system.stateVersion = "25.11";
 }
