@@ -1,4 +1,10 @@
-{ lib, machine, powerMenuScript, toggleWaybarScript, ... }:
+{
+  lib,
+  machine,
+  powerMenuScript,
+  toggleWaybarScript,
+  ...
+}:
 
 ''
   // This config is in the KDL format: https://kdl.dev
@@ -399,7 +405,7 @@
       Mod+T repeat=false hotkey-overlay-title="Open a Terminal: Wezterm" { spawn "wezterm"; }
       Mod+R repeat=false hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
       Mod+E repeat=false hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
-      Mod+B repeat=false hotkey-overlay-title="Run an Application: Zen" { spawn "~/.local/bin/zen/zen"; }
+      Mod+B repeat=false hotkey-overlay-title="Run an Application: Zen" { spawn "zen-beta"; }
       Mod+Q repeat=false { spawn "${lib.getExe powerMenuScript}"; }
       Mod+H repeat=false { spawn "${lib.getExe toggleWaybarScript}"; }
       Mod+L repeat=false { spawn-sh "~/.config/swayidle/screensaver run"; }
