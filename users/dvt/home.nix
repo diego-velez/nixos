@@ -4,6 +4,7 @@
   lib,
   machine,
   osConfig,
+  inputs,
   ...
 }:
 
@@ -35,6 +36,7 @@ let
 in
 {
   imports = [
+    inputs.zen-browser.homeModules.beta
     ./git.nix
     ./lazygit.nix
     ./starship.nix
@@ -56,6 +58,11 @@ in
     gcc
     gnumake
   ];
+
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+  };
 
   # programs.mise = {
   #   enable = true;
