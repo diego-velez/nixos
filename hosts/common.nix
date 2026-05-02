@@ -82,13 +82,6 @@
   # See https://wiki.nixos.org/wiki/Storage_optimization#Automatic
   nix.optimise.automatic = true;
 
-  # See https://wiki.nixos.org/wiki/Storage_optimization#Automation
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   environment.systemPackages = with pkgs; [
     wget
     ripgrep
@@ -135,6 +128,13 @@
     playerctl
     clinfo
   ];
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 5";
+    flake = "/home/dvt/nixos";
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
