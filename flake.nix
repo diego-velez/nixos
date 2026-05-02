@@ -33,5 +33,6 @@
     };
   in {
     nixosConfigurations.laptop = mkSystem "laptop" "dvt" "DVT_on_ROG";
+nixosConfigurations.desktop = mkSystem "desktop" "dvt" "DVT_on_Master";
   };
 }
