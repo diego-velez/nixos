@@ -107,6 +107,7 @@
     dracula-theme
     dracula-icon-theme
     psmisc
+    playerctl
   ];
 
   fonts.packages = with pkgs; [
