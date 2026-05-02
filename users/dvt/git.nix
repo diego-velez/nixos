@@ -3,7 +3,7 @@
     enable = true;
 
     signing = {
-      # key = "~/.ssh/github";
+      key = "~/.ssh/github";
       signByDefault = false;
     };
 
