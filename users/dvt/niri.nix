@@ -16,13 +16,7 @@
   // Find the full list of options on the wiki:
   // https://yalter.github.io/niri/Configuration:-Input
 
-  environment {
-      GTK_THEME "Dracula"
-  }
-
   cursor {
-      xcursor-theme "Colloid-Dracula-cursors-light"
-      xcursor-size 36
       hide-when-typing
   }
 

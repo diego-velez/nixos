@@ -61,6 +61,14 @@ in
     gnumake
   ];
 
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    name = "graphite-light";
+    package = pkgs.graphite-cursors;
+    size = 26;
+  };
+
   programs.zen-browser = {
     enable = true;
     languagePacks = [ "en-US" ];
@@ -419,6 +427,24 @@ in
   };
 
   xdg.configFile."quickshell".source = ./quickshell;
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
+    };
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
