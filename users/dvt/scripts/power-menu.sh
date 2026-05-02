@@ -17,7 +17,7 @@ options="$shutdown$shutdown_icon\n$restart$reboot_icon\n$suspend$suspend_icon\n$
 
 # Must have ~/.icons/dracula-icons
 # See https://github.com/m4thewz/dracula-icons
-choice=$(echo -e "$options" | fuzzel --dmenu --hide-prompt --font=":size=@fontSize@")
+choice=$(echo -e "$options" | fuzzel --dmenu --hide-prompt --icon-theme="Dracula" --font=":size=@fontSize@")
 case "$choice" in
     "$shutdown")
         systemctl poweroff
