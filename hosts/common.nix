@@ -5,6 +5,13 @@
   ...
 }:
 {
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+    efiSysMountPoint = "/boot";
+  };
+
   time.timeZone = lib.mkDefault "America/Puerto_Rico";
 
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
