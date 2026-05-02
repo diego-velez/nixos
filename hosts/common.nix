@@ -59,10 +59,28 @@
   programs.niri.enable = true;
 
   nixpkgs.config.allowUnfree = lib.mkDefault true;
-  nix.settings.experimental-features = lib.mkDefault [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    # Enable flakes
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    # Rebuild faster by using all CPU cores
+    max-jobs = "auto";
+    cores = 0;
+  };
+
+  # Periodically optimize nix store
+  # See https://wiki.nixos.org/wiki/Storage_optimization#Automatic
+  nix.optimise.automatic = true;
+
+  # See https://wiki.nixos.org/wiki/Storage_optimization#Automation
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   environment.systemPackages = with pkgs; [
     wget
