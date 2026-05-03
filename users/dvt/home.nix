@@ -14,11 +14,9 @@ let
     name = "power-menu";
     runtimeInputs = with pkgs; [
       fuzzel
-      procps
       dracula-theme
       dracula-icon-theme
       systemd
-      niri
     ];
     text = builtins.replaceStrings [ "@fontSize@" ] [ fuzzelFontSize ] (
       builtins.readFile ./scripts/power-menu.sh
@@ -56,6 +54,7 @@ in
     toggleWaybarScript
 
     kanata
+    wl-gammarelay-rs
 
     # Programming
     tree-sitter
@@ -405,6 +404,94 @@ in
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      font = "JetBrainsMono Nerd Font";
+      font-size = 32;
+      indicator-radius = 100;
+      inside-color = "282A36";
+      inside-clear-color = "F1FA8C";
+      inside-ver-color = "50FA7B";
+      inside-wrong-color = "FF5555";
+      key-hl-color = "F1FA8C";
+      ring-color = "383A46";
+      ring-clear-color = "F1FA8C";
+      ring-ver-color = "50FA7B";
+      ring-wrong-color = "FF5555";
+      separator-color = "282A36";
+      text-color = "F8F8F2";
+      text-ver-color = "F8F8F2";
+      text-wrong-color = "F8F8F2";
+      # TODO: set wallpaper eventually
+      # image = ~/.config/swaylock/wallpaper;
+    };
+  };
+
+  services.swayidle =
+    let
+      # Either 'off' or 'on'
+      display = status: "${lib.getExe pkgs.niri} msg action power-${status}-monitors";
+      updateGammaBy =
+        gamma:
+        "${pkgs.systemd}/bin/busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateGamma d ${gamma}";
+      setGamma =
+        gamma:
+        "${pkgs.systemd}/bin/busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Gamma d ${gamma}";
+      lock = "${lib.getExe pkgs.swaylock} --daemonize";
+    in
+    {
+      enable = true;
+      timeouts = [
+        # Dim screen
+        {
+          timeout = 300; # 5 minutes
+          command = updateGammaBy "0.5";
+          resumeCommand = setGamma "1";
+        }
+        # Lock screen
+        {
+          timeout = 900; # 15 minutes
+          command = lock;
+        }
+        # Turn off screen
+        {
+          timeout = 1500; # 25 minutes
+          command = display "off";
+          resumeCommand = display "on";
+        }
+        # Go to sleep
+        {
+          timeout = 1800; # 30 minutes
+          command = "${pkgs.systemd}/bin/systemctl suspend";
+        }
+      ];
+      events = {
+        before-sleep = (display "off") + "; " + lock;
+        after-resume = display "on";
+        lock = (display "off") + "; " + lock;
+        unlock = display "on";
+      };
+    };
+
+  # This is needed for swayidle dim screen timeout
+  systemd.user.services.wl-gammarelay = {
+    Unit = {
+      Description = "Software-based screen dimming daemon";
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${lib.getExe pkgs.wl-gammarelay-rs} run";
+      Restart = "always";
+      RestartSec = 5;
+    };
   };
 
   # programs.mise = {

@@ -15,7 +15,6 @@ logout_icon="\0icon\x1fsystem-log-out"
 
 options="$shutdown$shutdown_icon\n$restart$reboot_icon\n$suspend$suspend_icon\n$lock$lock_icon\n$logout$logout_icon"
 
-# Must have ~/.icons/dracula-icons
 # See https://github.com/m4thewz/dracula-icons
 choice=$(echo -e "$options" | fuzzel --dmenu --hide-prompt --icon-theme="Dracula" --font=":size=@fontSize@")
 case "$choice" in
@@ -29,13 +28,9 @@ case "$choice" in
         systemctl suspend
         ;;
     "$lock")
-        swaylock
+        loginctl lock-session
         ;;
     "$logout")
-        if pgrep -x "hyprland" > /dev/null; then
-            hyprctl dispatch exit
-        elif pgrep -x "niri" > /dev/null; then
-            niri msg action quit --skip-confirmation
-        fi
+        loginctl terminate-session self
         ;;
 esac
