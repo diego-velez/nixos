@@ -51,6 +51,7 @@ in
     ./lazygit.nix
     ./starship.nix
     ./imv.nix
+    ./kanata.nix
   ];
 
   home.username = "dvt";
