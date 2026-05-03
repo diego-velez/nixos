@@ -37,7 +37,6 @@
     nvtopPackages.full
     powertop
     brightnessctl
-    kanata
   ];
 
   system.stateVersion = "25.11";

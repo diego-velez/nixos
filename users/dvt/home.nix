@@ -55,6 +55,8 @@ in
     powerMenuScript
     toggleWaybarScript
 
+    kanata
+
     # Programming
     tree-sitter
     gcc
