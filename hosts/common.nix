@@ -150,16 +150,16 @@
 
   services.openssh.enable = lib.mkDefault true;
 
-  # programs.nix-ld = {
-  #     enable = true;
-  #     libraries = with pkgsUnstable; [
-  #         stdenv.cc.cc.lib
-  #         zlib
-  #         openssl
-  #         curl
-  #         libgcc
-  #     ];
-  # };
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgsUnstable; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+      curl
+      libgcc
+    ];
+  };
 
   virtualisation.docker = {
     enable = false;
