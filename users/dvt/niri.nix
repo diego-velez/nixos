@@ -204,8 +204,6 @@
   // See the binds section below for more spawn examples.
 
   // This line starts waybar, a commonly used bar for Wayland compositors.
-  // Use personal fork https://github.com/diego-velez/Waybar
-  spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
   spawn-sh-at-startup "waybar"
 
   // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
