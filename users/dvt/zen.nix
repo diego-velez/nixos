@@ -76,6 +76,7 @@
           "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
           "trackmenot@mrl.nyu.edu" = "trackmenot";
           "{861a3982-bb3b-49c6-bc17-4f50de104da1}" = "custom-user-agent-revived";
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = "vimium-ff";
         };
         Preferences = mkLockedAttrs {
           "browser.aboutConfig.showWarning" = false;
