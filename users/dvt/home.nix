@@ -208,12 +208,6 @@ in
     package = pkgsUnstable.awww;
   };
 
-  # programs.mise = {
-  #   enable = true;
-  #   enableFishIntegration = true;
-  #   package = pkgsUnstable.mise;
-  # };
-
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
