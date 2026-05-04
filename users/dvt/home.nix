@@ -72,6 +72,30 @@ in
     tree-sitter
     gcc
     gnumake
+
+    # Neovim LSPs, formatters and linters
+    lua-language-server
+    stylua
+    gopls
+    golangci-lint
+    tinymist
+    asm-lsp
+    nixd
+    nixfmt
+    basedpyright
+    ruff
+    jq
+    google-java-format
+    templ
+    prettier
+    pgformatter
+    hclfmt
+    biome
+    actionlint
+    libclang
+    bash-language-server
+    (callPackage ./kotlin-lsp.nix { })
+    jdk
   ];
 
   programs.zoxide = {
@@ -222,5 +246,6 @@ in
     FZF_DEFAULT_OPTS = "--layout=reverse";
     RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/ripgrep.conf";
     TERMINAL = "wezterm";
+    JAVA_HOME = "${pkgs.jdk}";
   };
 }
