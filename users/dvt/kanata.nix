@@ -5,8 +5,8 @@
   ...
 }:
 {
-  xdg.configFile."kanata/config.kbd" = lib.mkIf (machine == "laptop") {
-    text = ''
+  xdg.configFile = lib.mkIf (machine == "laptop") {
+    "kanata/config.kbd".text = ''
       (defcfg
           process-unmapped-keys yes
       )
@@ -46,20 +46,22 @@
     '';
   };
 
-  systemd.user.services.kanata = lib.mkIf (machine == "laptop") {
-    Unit = {
-      Description = "Kanata Keyboard remapper";
-      Documentation = "https://github.com/jtroo/kanata";
-    };
+  systemd.user.services = lib.mkIf (machine == "laptop") {
+    kanata = {
+      Unit = {
+        Description = "Kanata Keyboard remapper";
+        Documentation = "https://github.com/jtroo/kanata";
+      };
 
-    Service = {
-      Type = "simple";
-      ExecStart = "${lib.getExe pkgs.kanata} --cfg %E/kanata/config.kbd";
-      Restart = "no";
-    };
+      Service = {
+        Type = "simple";
+        ExecStart = "${lib.getExe pkgs.kanata} --cfg %E/kanata/config.kbd";
+        Restart = "no";
+      };
 
-    Install = {
-      WantedBy = [ "default.target" ];
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
     };
   };
 }
