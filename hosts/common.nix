@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgsUnstable,
-  lib,
   ...
 }:
 {
@@ -13,10 +12,10 @@
     efiSysMountPoint = "/boot";
   };
 
-  time.timeZone = lib.mkDefault "America/Puerto_Rico";
+  time.timeZone = "America/Puerto_Rico";
 
-  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
-  i18n.extraLocaleSettings = lib.mkDefault {
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
     LC_MEASUREMENT = "en_US.UTF-8";
@@ -28,20 +27,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = lib.mkDefault true;
+  services.xserver.enable = true;
 
-  services.displayManager.gdm.enable = lib.mkDefault true;
+  services.displayManager.gdm.enable = true;
 
-  services.xserver.xkb = lib.mkDefault {
+  services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  services.printing.enable = lib.mkDefault true;
+  services.printing.enable = true;
 
-  services.pulseaudio.enable = lib.mkDefault false;
-  security.rtkit.enable = lib.mkDefault true;
-  services.pipewire = lib.mkDefault {
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -61,12 +60,12 @@
     ];
   };
 
-  programs.firefox.enable = lib.mkDefault true;
-  programs.fish.enable = lib.mkDefault true;
+  programs.firefox.enable = true;
+  programs.fish.enable = true;
 
   programs.niri.enable = true;
 
-  nixpkgs.config.allowUnfree = lib.mkDefault true;
+  nixpkgs.config.allowUnfree = true;
   nix.settings = {
     # Enable flakes
     experimental-features = [
@@ -149,7 +148,7 @@
     monospace = [ "JetBrainsMono Nerd Font" ];
   };
 
-  services.openssh.enable = lib.mkDefault true;
+  services.openssh.enable = true;
 
   programs.nix-ld = {
     enable = true;
