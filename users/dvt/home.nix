@@ -33,6 +33,13 @@ let
       builtins.readFile ./scripts/toggle-waybar.sh
     );
   };
+  setWallpaper = pkgs.writeShellApplication {
+    name = "set-wallpaper";
+    runtimeInputs = [
+      pkgsUnstable.awww
+    ];
+    text = builtins.readFile ./scripts/set-wallpaper.sh;
+  };
 in
 {
   imports = [
@@ -56,6 +63,7 @@ in
   home.packages = with pkgs; [
     powerMenuScript
     toggleWaybarScript
+    setWallpaper
 
     kanata
     wl-gammarelay-rs
@@ -95,8 +103,7 @@ in
       text-color = "F8F8F2";
       text-ver-color = "F8F8F2";
       text-wrong-color = "F8F8F2";
-      # TODO: set wallpaper eventually
-      # image = ~/.config/swaylock/wallpaper;
+      image = "~/.config/swaylock/wallpaper";
     };
   };
 
@@ -165,6 +172,10 @@ in
   };
 
   services.cliphist.enable = true;
+  services.awww = {
+    enable = true;
+    package = pkgsUnstable.awww;
+  };
 
   # programs.mise = {
   #   enable = true;
@@ -184,6 +195,7 @@ in
       machine
       powerMenuScript
       toggleWaybarScript
+      setWallpaper
       ;
   };
 

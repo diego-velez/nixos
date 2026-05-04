@@ -119,7 +119,6 @@
     wl-clipboard
     syncthing
     quickshell
-    swww
     nixd
     dracula-theme
     dracula-icon-theme
