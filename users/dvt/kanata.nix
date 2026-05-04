@@ -1,4 +1,10 @@
-{lib, pkgs, machine, ...}: {
+{
+  lib,
+  pkgs,
+  machine,
+  ...
+}:
+{
   xdg.configFile."kanata/config.kbd" = lib.mkIf (machine == "laptop") {
     text = ''
       (defcfg

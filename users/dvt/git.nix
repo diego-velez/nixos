@@ -1,5 +1,6 @@
-{...}:
-  { programs.git = {
+{ ... }:
+{
+  programs.git = {
     enable = true;
 
     signing = {
@@ -15,4 +16,5 @@
       gpg.format = "ssh";
       pull.rebase = true;
     };
-  }; }
+  };
+}
