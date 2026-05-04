@@ -215,7 +215,8 @@
   spawn-sh-at-startup "~/.config/scripts/wallpaper_slideshow.sh &"
   spawn-sh-at-startup "~/.config/scripts/eye_break.sh &"
   spawn-at-startup "quickshell" "--daemonize"
-  spawn-sh-at-startup "wl-paste -t text --watch clipman store --max-items=100 -P --histpath=~/.local/share/clipman.json"
+  spawn-sh-at-startup "wl-paste -t text --watch cliphist store"
+  spawn-sh-at-startup "wl-paste -t image --watch cliphist store"
 
   hotkey-overlay {
       // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -403,7 +404,7 @@
       Mod+Q repeat=false hotkey-overlay-title="Power menu" { spawn "${lib.getExe powerMenuScript}"; }
       Mod+H repeat=false hotkey-overlay-title="Toggle Waybar" { spawn "${lib.getExe toggleWaybarScript}"; }
       Mod+L repeat=false hotkey-overlay-title="Lock Session" { spawn-sh "loginctl lock-session"; }
-      Mod+V repeat=false hotkey-overlay-title="Select Clipboard History" { spawn-sh "clipman pick --max-items=100 -t STDOUT | fuzzel --dmenu | wl-copy" ; }
+      Mod+V repeat=false hotkey-overlay-title="Select Clipboard History" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy" ; }
       Mod+M repeat=false hotkey-overlay-title="Select Menu" { spawn-sh "~/.config/menus/menus" ; }
 
       // Example volume keys mappings for PipeWire & WirePlumber.

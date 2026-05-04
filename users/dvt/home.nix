@@ -494,6 +494,8 @@ in
     };
   };
 
+  services.cliphist.enable = true;
+
   # programs.mise = {
   #   enable = true;
   #   enableFishIntegration = true;

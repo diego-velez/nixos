@@ -117,7 +117,6 @@
     libnotify
     mako
     wl-clipboard
-    clipman
     syncthing
     quickshell
     swww
