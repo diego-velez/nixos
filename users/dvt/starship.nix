@@ -55,6 +55,7 @@
         symbols = {
           Fedora = "󰣛";
           Arch = "󰣇";
+          NixOS = "";
         };
       };
 
