@@ -98,6 +98,13 @@ in
     jdk
   ];
 
+  # We want this for automatic sourcing of dev shell when cd'ing into project with .envrc
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;

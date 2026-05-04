@@ -9,6 +9,7 @@
         "[](purple)"
         "$os"
         "$username"
+        "$nix_shell"
         "[](bg:green fg:purple)"
         "$directory"
         "[](fg:green bg:cyan)"
@@ -144,6 +145,10 @@
         symbol = "";
         style = "bg:green bold";
         format = "[[ $symbol( $version) ](fg:background bg:red bold)]($style)";
+      };
+
+      nix_shell = {
+        format = "[[via $state( \($name\)) ](fg:background bg:purple bold)]($style)";
       };
 
       docker_context = {
