@@ -63,7 +63,10 @@
   programs.firefox.enable = true;
   programs.fish.enable = true;
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgsUnstable.niri;
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix.settings = {

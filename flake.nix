@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -22,6 +26,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      niri-flake,
       ...
     }@inputs:
     let
@@ -35,7 +40,10 @@
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs pkgsUnstable hostname; };
           modules = [
-            { nixpkgs.config.allowUnfree = true; }
+            {
+              nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+              nixpkgs.config.allowUnfree = true;
+            }
 
             ./hosts/${machine}/configuration.nix
             home-manager.nixosModules.home-manager
@@ -50,6 +58,8 @@
                 users.${user} = ./users/${user}/home.nix;
               };
             }
+
+            niri-flake.nixosModules.niri
           ];
         };
     in
