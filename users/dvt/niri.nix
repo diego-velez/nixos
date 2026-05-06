@@ -376,6 +376,10 @@
       // Enable rounded corners for all windows
       geometry-corner-radius 10
       clip-to-geometry true
+
+      background-effect {
+        blur true
+      }
   }
 
   binds {
@@ -503,6 +507,8 @@
 
       Mod+Comma { switch-preset-column-width-back; }
       Mod+Period { switch-preset-column-width; }
+      Mod+Ctrl+Comma { set-column-width "-5%"; }
+      Mod+Ctrl+Period { set-column-width "+5%"; }
 
       // Move the focused window between the floating and the tiling layout.
       Mod+F       { toggle-window-floating; }
