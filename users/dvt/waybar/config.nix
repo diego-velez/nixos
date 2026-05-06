@@ -189,7 +189,7 @@ builtins.toJSON (
       tooltip-format-no-controller = "No controller was found!!";
       tooltip-format-connected = "Connected to {device_alias}";
       tooltip-format-connected-battery = "Connected to {device_alias} (󰥈 {device_battery_percentage}%)";
-      on-click = "~/.local/bin/bzmenu --launcher fuzzel";
+      on-click = "blueman-manager";
     };
 
     "custom/notification" = {

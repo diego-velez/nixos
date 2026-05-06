@@ -284,10 +284,9 @@
   // Open windows as floating by default
   window-rule {
       // Open the Firefox/Zen picture-in-picture player as floating by default.
-      match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-      match app-id=r#"zen$"# title="^Picture-in-Picture$"
-      match app-id=r#"zen$"# title="^Library$"
-      match app-id=r#"zen$"# title=r#"About Zen Browser$"#
+      match title="^Picture-in-Picture$"
+      match title="^Library$"
+      match title=r#"About Zen Browser$"#
 
       match app-id=r#"thunar$"#
       match app-id=r#"qalculate-gtk$"#
@@ -303,12 +302,28 @@
       match app-id=r#"Android Emulator.*$/i"#
       match app-id=r#"file-jpeg$"#
       match app-id=r#"file-png$"#
+      match app-id=".blueman-manager-wrapped"
+      match app-id="org.pulseaudio.pavucontrol"
       match app-id="org.qbittorrent.qBittorrent"
       exclude title="qBittorrent"
       match app-id="steam"
       exclude title="Steam"
 
+      default-column-width { fixed 1000; }
+      default-window-height { fixed 800; }
+
       open-floating true
+  }
+
+  // Set rules for floating windows
+  window-rule {
+      match is-floating=true
+
+      min-width 400
+      max-width 2038
+
+      min-height 400
+      max-height 1380
   }
 
   // Change some windows default size
@@ -330,7 +345,6 @@
 
   window-rule {
       match app-id="org.pwmt.zathura"
-      match app-id="org.pulseaudio.pavucontrol"
       match app-id="org.qbittorrent.qBittorrent" title="qBittorrent"
       default-column-width { proportion 0.2; }
   }
@@ -338,23 +352,6 @@
   window-rule {
       match app-id="virt-manager" title="Virtual Machine Manager"
       default-column-width { fixed 324; }
-  }
-
-  window-rule {
-      match app-id=r#"org.gnome.Nautilus$"#
-      default-column-width { fixed 1000; }
-      default-window-height { fixed 900; }
-  }
-
-  // Set rules for floating windows
-  window-rule {
-      match is-floating=true
-
-      min-width 400
-      max-width 2038
-
-      min-height 400
-      max-height 1380
   }
 
   // Example: block out two password managers from screen capture.
