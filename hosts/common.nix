@@ -96,6 +96,8 @@
     package = pkgsUnstable.niri;
   };
 
+  programs.localsend.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
     # Enable flakes
@@ -139,7 +141,6 @@
     cowsay
     keepassxc
     ferdium
-    localsend
     qalculate-gtk
     onlyoffice-desktopeditors
     xwayland-satellite
