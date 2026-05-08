@@ -68,6 +68,7 @@ in
 
     kanata
     wl-gammarelay-rs
+    jupyter
 
     # Programming
     tree-sitter
