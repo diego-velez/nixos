@@ -165,6 +165,8 @@
     playerctl
     clinfo
     pavucontrol
+    gdu
+    qdirstat
   ];
 
   programs.nh = {
