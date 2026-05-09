@@ -235,6 +235,15 @@ in
     };
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Dracula";
+      italic-text = "always";
+      style = "full";
+    };
+  };
+
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
