@@ -225,6 +225,16 @@ in
     };
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "dracula";
+      update_ms = 500;
+      proc_left = true;
+      proc_filter_kernel = true;
+    };
+  };
+
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
