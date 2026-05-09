@@ -244,6 +244,37 @@ in
     };
   };
 
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        font = "JetBrainsMono Nerd Font:size=18";
+        prompt = ''"󱞫 "'';
+        icons-enabled = true;
+        icon-theme = "Dracula";
+        sort-result = true;
+        match-counter = true;
+      };
+      border = {
+        width = 2;
+        radius = 100;
+      };
+      colors = {
+        background = "282A36FF";
+        text = "F8F8F2FF";
+        prompt = "6272A4FF";
+        placeholder = "6272A4FF";
+        input = "F8F8F2FF";
+        match = "50FA7BFF";
+        selection = "44475AFF";
+        selection-text = "F8F8F2FF";
+        selection-match = "50FA7BFF";
+        counter = "6272A4FF";
+        border = "F8F8F2FF";
+      };
+    };
+  };
+
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
