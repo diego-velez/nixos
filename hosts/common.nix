@@ -167,6 +167,8 @@
     pavucontrol
     gdu
     qdirstat
+    mangohud
+    mangojuice
   ];
 
   programs.nh = {

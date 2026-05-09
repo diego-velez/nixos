@@ -252,5 +252,6 @@ in
     RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/ripgrep.conf";
     TERMINAL = "wezterm";
     JAVA_HOME = "${pkgs.jdk}";
+    MANGOHUD = "1";
   };
 }
