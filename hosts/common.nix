@@ -154,7 +154,6 @@
     lazydocker
     typst
     libnotify
-    mako
     wl-clipboard
     syncthing
     quickshell

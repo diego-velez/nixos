@@ -283,6 +283,23 @@ in
     ];
   };
 
+  services.mako = {
+    enable = true;
+    settings = {
+      font = "JetBrainsMono Nerd Font Mono 14";
+      background-color = "#282A36";
+      text-color = "#F8F8F2";
+      border-color = "#FFB86C";
+      border-radius = "10";
+      icons = "1";
+      width = "500";
+      text-alignment = "center";
+      anchor = "top-center";
+      max-history = "100";
+      default-timeout = "5000";
+    };
+  };
+
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
