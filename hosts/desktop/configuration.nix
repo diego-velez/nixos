@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     btop-rocm
+    keymapp
   ];
 
   system.stateVersion = "25.11";

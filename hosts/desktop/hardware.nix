@@ -51,4 +51,6 @@
   hardware.amdgpu.initrd.enable = true;
   hardware.amdgpu.opencl.enable = true;
   nixpkgs.config.rocmSupport = true;
+
+  hardware.keyboard.zsa.enable = true;
 }

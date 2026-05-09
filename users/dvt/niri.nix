@@ -308,6 +308,7 @@
       exclude title="qBittorrent"
       match app-id="steam"
       exclude title="Steam"
+      match app-id="keymapp"
 
       default-column-width { fixed 1000; }
       default-window-height { fixed 800; }
