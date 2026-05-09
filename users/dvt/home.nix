@@ -275,6 +275,14 @@ in
     };
   };
 
+  programs.ripgrep = {
+    enable = true;
+    arguments = [
+      "--hidden"
+      "--smart-case"
+    ];
+  };
+
   xdg.configFile."waybar/style.css".source = ./waybar/style.css;
   xdg.configFile."waybar/toggle_wireguard_vpn".source = ./waybar/toggle_wireguard_vpn;
   xdg.configFile."waybar/config".text = import ./waybar/config.nix {
@@ -312,7 +320,6 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     FZF_DEFAULT_OPTS = "--layout=reverse";
-    RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/ripgrep.conf";
     TERMINAL = "wezterm";
     JAVA_HOME = "${pkgs.jdk}";
     MANGOHUD = "1";
