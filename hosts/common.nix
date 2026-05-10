@@ -141,7 +141,6 @@
     rhythmbox
     xfce.thunar
     fastfetch
-    zathura
     swayidle
     ungoogled-chromium
     mpv
