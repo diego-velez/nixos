@@ -405,7 +405,6 @@
       Mod+H repeat=false hotkey-overlay-title="Toggle Waybar" { spawn "${lib.getExe toggleWaybarScript}"; }
       Mod+L repeat=false hotkey-overlay-title="Lock Session" { spawn-sh "loginctl lock-session"; }
       Mod+V repeat=false hotkey-overlay-title="Select Clipboard History" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy" ; }
-      Mod+M repeat=false hotkey-overlay-title="Select Menu" { spawn-sh "~/.config/menus/menus" ; }
 
       // Example volume keys mappings for PipeWire & WirePlumber.
       // The allow-when-locked=true property makes them work even when the session is locked.
