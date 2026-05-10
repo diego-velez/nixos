@@ -40,6 +40,13 @@ let
     ];
     text = builtins.readFile ./scripts/set-wallpaper.sh;
   };
+  eyeBreak = pkgs.writeShellApplication {
+    name = "eye-break";
+    runtimeInputs = with pkgs; [
+      libnotify
+    ];
+    text = builtins.readFile ./scripts/eye-break.sh;
+  };
 in
 {
   imports = [
@@ -65,6 +72,7 @@ in
     powerMenuScript
     toggleWaybarScript
     setWallpaper
+    eyeBreak
 
     kanata
     wl-gammarelay-rs
@@ -313,6 +321,7 @@ in
       powerMenuScript
       toggleWaybarScript
       setWallpaper
+      eyeBreak
       ;
   };
 
