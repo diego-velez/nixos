@@ -127,7 +127,6 @@
     ripgrep
     zoxide
     git
-    vim
     pkgsUnstable.neovim
     wezterm
     waybar
