@@ -269,7 +269,7 @@ in
       "[index] <Left>" = "navigate_index collapse";
       "[index] <Right>" = "navigate_index expand";
       # See https://unix.stackexchange.com/a/321932
-      "<C-o> feedkeys" = ":exec thunar $FILE<Return>";
+      "<C-o> feedkeys" = ''":exec thunar $FILE<Return>"'';
     };
   };
 
