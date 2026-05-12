@@ -80,6 +80,7 @@ in
     kanata
     wl-gammarelay-rs
     jupyter
+    pkgsUnstable.antigravity-fhs
 
     # Programming
     tree-sitter
