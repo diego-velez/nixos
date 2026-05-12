@@ -3,7 +3,7 @@
   machine,
   powerMenuScript,
   toggleWaybarScript,
-  setWallpaper,
+  randomWallpaper,
   eyeBreak,
   ...
 }:
@@ -211,7 +211,7 @@
   // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
   // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
   spawn-sh-at-startup "${lib.getExe eyeBreak}"
-  spawn-sh-at-startup "${lib.getExe setWallpaper}"
+  spawn-sh-at-startup "${lib.getExe randomWallpaper}"
   spawn-at-startup "quickshell" "--daemonize"
   spawn-sh-at-startup "wl-paste -t text --watch cliphist store"
   spawn-sh-at-startup "wl-paste -t image --watch cliphist store"
