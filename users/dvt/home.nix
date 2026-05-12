@@ -34,10 +34,27 @@ let
       builtins.readFile ./scripts/toggle-waybar.sh
     );
   };
+  setWallpaper = pkgs.writeShellApplication {
+    name = "set-wallpaper";
+    runtimeInputs = [
+      pkgsUnstable.awww
+    ];
+    text = builtins.readFile ./scripts/set-wallpaper.sh;
+  };
+  chooseWallpaper = pkgs.writeShellApplication {
+    name = "choose-wallpaper";
+    runtimeInputs = [
+      pkgs.fuzzel
+      setWallpaper
+    ];
+    text = builtins.replaceStrings [ "@wallpaperFolder@" ] [ "${../../wallpapers}" ] (
+      builtins.readFile ./scripts/choose-wallpaper.sh
+    );
+  };
   randomWallpaper = pkgs.writeShellApplication {
     name = "random-wallpaper";
     runtimeInputs = [
-      pkgsUnstable.awww
+      setWallpaper
     ];
     text = builtins.replaceStrings [ "@wallpaperFolder@" ] [ "${../../wallpapers}" ] (
       builtins.readFile ./scripts/random-wallpaper.sh
@@ -74,6 +91,8 @@ in
   home.packages = with pkgs; [
     powerMenuScript
     toggleWaybarScript
+    setWallpaper
+    chooseWallpaper
     randomWallpaper
     eyeBreak
 
