@@ -39,7 +39,9 @@ let
     runtimeInputs = [
       pkgsUnstable.awww
     ];
-    text = builtins.readFile ./scripts/set-wallpaper.sh;
+    text = builtins.replaceStrings [ "@wallpaperFolder@" ] [ "${../../wallpapers}" ] (
+      builtins.readFile ./scripts/set-wallpaper.sh
+    );
   };
   eyeBreak = pkgs.writeShellApplication {
     name = "eye-break";
