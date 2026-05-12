@@ -167,7 +167,7 @@ in
       text-color = "F8F8F2";
       text-ver-color = "F8F8F2";
       text-wrong-color = "F8F8F2";
-      image = "~/.config/swaylock/wallpaper";
+      image = "${config.home.homeDirectory}/.config/swaylock/wallpaper";
     };
   };
 
@@ -302,7 +302,7 @@ in
       github = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/github";
+        identityFile = "${config.home.homeDirectory}/.ssh/github";
         identitiesOnly = true;
       };
     };
