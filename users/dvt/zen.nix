@@ -269,6 +269,80 @@
             ];
             definedAliases = [ "brave" ];
           };
+          youtube = {
+            name = "YouTube Search";
+            urls = [
+              {
+                template = "https://www.youtube.com/results";
+                params = [
+                  {
+                    name = "search_query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "yt" ];
+          };
+          nixos = {
+            name = "NixOS Search";
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "nix" ];
+          };
+          github = {
+            urls = [
+              {
+                template = "https://github.com/search?q=hi&type=code";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "type";
+                    value = "code";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "gh" ];
+          };
+          "Google Maps" = {
+            urls = [
+              {
+                template = "http://maps.google.com";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [
+              "map"
+              "maps"
+              "gmaps"
+            ];
+          };
         };
       };
     };
