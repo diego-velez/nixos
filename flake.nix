@@ -62,6 +62,7 @@
     {
       nixosConfigurations.laptop = mkSystem "laptop" "dvt" "DVT-on-ROG";
       nixosConfigurations.desktop = mkSystem "desktop" "dvt" "DVT-on-Master";
+      # TODO: I need to migrate my desktop to use disko and delete this host
       nixosConfigurations.desktop-disko = mkSystem "desktop-disko" "dvt" "DVT-on-Master";
     };
 }
