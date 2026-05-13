@@ -140,7 +140,6 @@
     bat
     fd
     rhythmbox
-    xfce.thunar
     fastfetch
     swayidle
     ungoogled-chromium
@@ -170,6 +169,16 @@
     mangojuice
   ];
 
+  services.tumbler.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      xfce.thunar-volman
+      xfce.thunar-archive-plugin
+      xfce.thunar-media-tags-plugin
+    ];
+  };
+
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -192,6 +201,12 @@
   };
 
   services.openssh.enable = true;
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
+  };
+  services.gvfs.enable = true;
+  services.devmon.enable = true;
 
   programs.nix-ld = {
     enable = true;

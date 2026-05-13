@@ -243,6 +243,19 @@ in
 
   services.mpris-proxy.enable = true;
 
+  services.udiskie = {
+    enable = true;
+    tray = "never";
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.xfce.thunar}/bin/thunar";
+      };
+    };
+  };
+
   programs.zathura = {
     enable = true;
     options = {
