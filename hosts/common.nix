@@ -85,6 +85,7 @@
       "input"
       "uinput"
       "docker"
+      "libvirtd"
     ];
   };
 
@@ -202,12 +203,18 @@
     ];
   };
 
-  virtualisation.docker = {
-    enable = false;
+  programs.virt-manager.enable = true;
 
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+
+    docker = {
+      enable = false;
+
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 }
