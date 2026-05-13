@@ -78,6 +78,7 @@
   users.users.dvt = {
     isNormalUser = true;
     shell = pkgs.fish;
+    initialHashedPassword = "$y$j9T$dCe69c2lQuu8AFJnKwYpg1$DmMqWr4O4ms6IR5z2pzxPZiYXtbrJx5MRIUj1DXRGp7";
     description = "Diego Velez";
     extraGroups = [
       "networkmanager"
