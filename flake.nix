@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +25,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      disko,
       home-manager,
       ...
     }@inputs:
@@ -50,11 +55,13 @@
                 users.${user} = ./users/${user}/home.nix;
               };
             }
+            disko.nixosModules.disko
           ];
         };
     in
     {
       nixosConfigurations.laptop = mkSystem "laptop" "dvt" "DVT-on-ROG";
       nixosConfigurations.desktop = mkSystem "desktop" "dvt" "DVT-on-Master";
+      nixosConfigurations.desktop-disko = mkSystem "desktop-disko" "dvt" "DVT-on-Master";
     };
 }
