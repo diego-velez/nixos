@@ -39,7 +39,6 @@
     };
 
     shellAbbrs = {
-      config = "git --git-dir=$HOME/.files/ --work-tree=$HOME";
       rumad = "ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=ssh-rsa estudiante@rumad.uprm.edu";
     };
 
