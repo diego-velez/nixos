@@ -40,7 +40,21 @@
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs pkgsUnstable hostname; };
           modules = [
-            { nixpkgs.config.allowUnfree = true; }
+            {
+              nixpkgs = {
+                config.allowUnfree = true;
+                overlays = [
+                  (final: prev: {
+                    auto-cpufreq = pkgsUnstable.auto-cpufreq;
+                  })
+                ];
+              };
+              # I want to use latest auto-cpufreq
+              disabledModules = [ "services/hardware/auto-cpufreq.nix" ];
+              imports = [
+                "${nixpkgs-unstable}/nixos/modules/services/hardware/auto-cpufreq.nix"
+              ];
+            }
 
             ./hosts/${machine}/configuration.nix
             home-manager.nixosModules.home-manager
