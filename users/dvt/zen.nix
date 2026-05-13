@@ -284,7 +284,7 @@
             ];
             definedAliases = [ "yt" ];
           };
-          nixos = {
+          nixpkgs = {
             name = "NixOS Search";
             urls = [
               {
@@ -305,7 +305,7 @@
                 ];
               }
             ];
-            definedAliases = [ "nix" ];
+            definedAliases = [ "nixpkgs" ];
           };
           github = {
             urls = [
