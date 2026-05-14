@@ -333,6 +333,7 @@
       match app-id="org.keepassxc.KeePassXC"
       match app-id="org.gnome.Rhythmbox3"
       match app-id="org.wezfurlong.wezterm"
+      match app-id="com.mitchellh.ghostty"
   ${
     if machine == "desktop" then
       ''
@@ -397,7 +398,7 @@
       Mod+Ctrl+Slash { show-hotkey-overlay; }
 
       // Suggested binds for running programs: terminal, app launcher, screen locker.
-      Mod+T repeat=false hotkey-overlay-title="Open a Terminal: Wezterm" { spawn "wezterm"; }
+      Mod+T repeat=false hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
       Mod+R repeat=false hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
       Mod+E repeat=false hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
       Mod+B repeat=false hotkey-overlay-title="Run an Application: Zen" { spawn "zen-beta"; }

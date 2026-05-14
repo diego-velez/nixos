@@ -302,6 +302,59 @@ in
     };
   };
 
+  programs.ghostty = {
+    enable = true;
+    systemd.enable = false;
+    settings = {
+      font-family = "JetBrainsMono Nerd Font Mono";
+      font-style = "Regular";
+      font-size = 12;
+      adjust-underline-position = 2;
+      theme = "Dracula";
+      background-opacity = 0.85;
+      confirm-close-surface = false;
+
+      keybind = [
+        "clear"
+
+        # General
+        "ctrl+shift+comma=reload_config"
+        "ctrl+shift+a=select_all"
+        "ctrl+shift+c=copy_to_clipboard"
+        "ctrl+shift+v=paste_from_clipboard"
+        "ctrl+shift+i=inspector:toggle"
+        "ctrl+shift+p=previous_tab"
+        "ctrl+shift+n=next_tab"
+
+        # Tabs
+        "ctrl+shift+t=new_tab"
+        "ctrl+shift+w=close_tab"
+        "alt+one=goto_tab:1"
+        "alt+two=goto_tab:2"
+        "alt+three=goto_tab:3"
+        "alt+four=goto_tab:4"
+        "alt+five=goto_tab:5"
+        "alt+six=goto_tab:6"
+        "alt+seven=goto_tab:7"
+        "alt+eight=goto_tab:8"
+        "alt+nine=last_tab"
+
+        # Font
+        "f10=reset_font_size"
+        "f11=decrease_font_size:1"
+        "f12=increase_font_size:1"
+
+        # Search and nav
+        "ctrl+shift+f=start_search"
+        "ctrl+shift+end=scroll_to_bottom"
+        "ctrl+shift+home=scroll_to_top"
+        "ctrl+shift+u=scroll_page_fractional:-0.5"
+        "ctrl+shift+d=scroll_page_fractional:0.5"
+        "ctrl+shift+m=write_screen_file:open"
+      ];
+    };
+  };
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
