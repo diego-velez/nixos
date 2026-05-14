@@ -2,7 +2,6 @@
 {
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
     settings = {
       # purple, green, cyan, red, pink, yellow
       format = lib.concatStrings [

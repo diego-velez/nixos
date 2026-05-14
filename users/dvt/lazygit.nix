@@ -2,7 +2,6 @@
 {
   programs.lazygit = {
     enable = true;
-    enableFishIntegration = true;
     settings = {
       gui = {
         language = "en";
