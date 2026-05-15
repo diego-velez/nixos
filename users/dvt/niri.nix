@@ -289,7 +289,7 @@
       match title="^Library$"
       match title=r#"About Zen Browser$"#
 
-      match app-id="Thunar"
+      match app-id=r#"thunar$"#
       match app-id=r#"qalculate-gtk$"#
       match app-id=r#"org.gnome.FileRoller$"#
       match app-id=r#"org.gnome.Nautilus$"#
