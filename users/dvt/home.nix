@@ -129,6 +129,7 @@ in
     bash-language-server
     (callPackage ./kotlin-lsp.nix { })
     jdk
+    typescript-language-server
   ];
 
   home.shell.enableShellIntegration = true;

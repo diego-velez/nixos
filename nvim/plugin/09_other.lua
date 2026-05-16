@@ -293,6 +293,7 @@ now_if_args(function()
     'bash-language-server',
     'jq',
     'nixd',
+    'ts_ls',
   }
 
   vim.lsp.enable(lsps)

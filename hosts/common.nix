@@ -173,6 +173,7 @@
     qdirstat
     mangohud
     mangojuice
+    pkgsUnstable.nodejs
   ];
 
   services.tumbler.enable = true;
