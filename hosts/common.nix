@@ -173,6 +173,7 @@
     qdirstat
     mangohud
     mangojuice
+    obs-studio
     pkgsUnstable.nodejs
   ];
 
