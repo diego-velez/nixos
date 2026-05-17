@@ -106,6 +106,8 @@ in
     gcc
     gnumake
 
+    # TODO: use home-manager's `programs.neovim` to setup instead,
+    # and I could add these packages only to is with its `extraPackages` option.
     # Neovim LSPs, formatters and linters
     lua-language-server
     stylua
