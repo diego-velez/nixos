@@ -175,6 +175,7 @@
     mangojuice
     obs-studio
     pkgsUnstable.nodejs
+    pkgsUnstable.gimp
   ];
 
   services.tumbler.enable = true;
