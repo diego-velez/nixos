@@ -307,7 +307,7 @@ in
 
   programs.ghostty = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     settings = {
       font-family = "JetBrainsMono Nerd Font Mono";
       font-style = "Regular";
@@ -316,6 +316,7 @@ in
       theme = "Dracula";
       background-opacity = 0.85;
       confirm-close-surface = false;
+      quit-after-last-window-closed = false;
 
       keybind = [
         "clear"

@@ -398,7 +398,7 @@
       Mod+Ctrl+Slash { show-hotkey-overlay; }
 
       // Suggested binds for running programs: terminal, app launcher, screen locker.
-      Mod+T repeat=false hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
+      Mod+T repeat=false hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty" "+new-window"; }
       Mod+R repeat=false hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
       Mod+E repeat=false hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
       Mod+B repeat=false hotkey-overlay-title="Run an Application: Zen" { spawn "zen-beta"; }
