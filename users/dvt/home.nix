@@ -333,20 +333,20 @@ in
         # Tabs
         "ctrl+shift+t=new_tab"
         "ctrl+shift+w=close_tab"
-        "alt+one=goto_tab:1"
-        "alt+two=goto_tab:2"
-        "alt+three=goto_tab:3"
-        "alt+four=goto_tab:4"
-        "alt+five=goto_tab:5"
-        "alt+six=goto_tab:6"
-        "alt+seven=goto_tab:7"
-        "alt+eight=goto_tab:8"
-        "alt+nine=last_tab"
+        "ctrl+shift+one=goto_tab:1"
+        "ctrl+shift+two=goto_tab:2"
+        "ctrl+shift+three=goto_tab:3"
+        "ctrl+shift+four=goto_tab:4"
+        "ctrl+shift+five=goto_tab:5"
+        "ctrl+shift+six=goto_tab:6"
+        "ctrl+shift+seven=goto_tab:7"
+        "ctrl+shift+eight=goto_tab:8"
+        "ctrl+shift+nine=last_tab"
 
         # Font
-        "f10=reset_font_size"
-        "f11=decrease_font_size:1"
-        "f12=increase_font_size:1"
+        "ctrl+0=reset_font_size"
+        "ctrl+minus=decrease_font_size:1"
+        "ctrl+equal=increase_font_size:1"
 
         # Search and nav
         "ctrl+shift+f=start_search"
