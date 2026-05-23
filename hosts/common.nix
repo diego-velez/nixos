@@ -190,6 +190,7 @@
 
   programs.nh = {
     enable = true;
+    package = pkgsUnstable.nh;
     clean.enable = true;
     clean.extraArgs = "--keep 5";
     flake = "/home/dvt/nixos";
