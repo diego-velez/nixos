@@ -100,6 +100,7 @@ in
     wl-gammarelay-rs
     jupyter
     pkgsUnstable.antigravity-fhs
+    pkgsUnstable.heroic
 
     # Programming
     tree-sitter
