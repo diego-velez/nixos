@@ -481,8 +481,8 @@ in
   };
 
   xdg.configFile."quickshell".source = ./quickshell;
-  xdg.configFile."wezterm".source = config.lib.file.mkOutOfStoreSymlink ./wezterm;
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ../../nvim;
+  xdg.configFile."wezterm".source = ./wezterm;
+  xdg.configFile."nvim".source = ../../nvim;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
