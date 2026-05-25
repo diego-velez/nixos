@@ -115,10 +115,15 @@
       "flakes"
     ];
 
-    # Rebuild faster by using all CPU cores
-    max-jobs = "auto";
-    cores = 0;
+    # 8 jobs each using 3 cores is 8 x 3 = 24 core CPU,
+    # meaning that the sysem will use all CPU cores during rebuild
+    max-jobs = 8;
+    cores = 3;
   };
+
+  nix.daemonCPUSchedPolicy = "batch";
+  nix.daemonIOSchedClass = "best-effort";
+  nix.daemonIOSchedPriority = 1;
 
   # Periodically optimize nix store
   # See https://wiki.nixos.org/wiki/Storage_optimization#Automatic
