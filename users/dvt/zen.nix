@@ -123,7 +123,7 @@
         "c8d9e6e6-e702-4e15-8972-3596e57cf398" # Zen Back Forward
       ];
 
-      keyboardShortcutsVersion = 17;
+      keyboardShortcutsVersion = 18;
       keyboardShortcuts = [
         {
           id = "zen-compact-mode-toggle";
