@@ -146,7 +146,6 @@
     waybar
     fuzzel
     eza
-    atuin
     starship
     fortune
     bat

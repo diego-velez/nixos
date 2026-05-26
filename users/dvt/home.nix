@@ -144,7 +144,7 @@ in
   };
 
   programs.zoxide.enable = true;
-  programs.atuin.enable = true;
+  programs.fzf.enable = true;
 
   programs.swaylock = {
     enable = true;
