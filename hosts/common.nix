@@ -105,6 +105,7 @@
       proton-ge-bin
     ];
   };
+  programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 
   nixpkgs.config.allowUnfree = true;
