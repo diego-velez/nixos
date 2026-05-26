@@ -133,7 +133,6 @@
   environment.systemPackages = with pkgs; [
     wget
     ripgrep
-    zoxide
     git
     (pkgsUnstable.neovim.overrideAttrs (oldAttrs: {
       postInstall = (oldAttrs.postInstall or "") + ''
