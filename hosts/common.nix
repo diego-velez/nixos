@@ -180,6 +180,8 @@
     obs-studio
     pkgsUnstable.nodejs
     pkgsUnstable.gimp
+    file-roller
+    p7zip
   ];
 
   services.tumbler.enable = true;
