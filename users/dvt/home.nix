@@ -569,7 +569,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     FZF_DEFAULT_OPTS = "--layout=reverse";
-    TERMINAL = "wezterm";
+    TERMINAL = "ghostty";
     JAVA_HOME = "${pkgs.jdk}";
     MANGOHUD = "1";
   };
