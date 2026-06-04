@@ -4,7 +4,6 @@
   config,
   lib,
   machine,
-  osConfig,
   inputs,
   ...
 }:
@@ -111,7 +110,7 @@ in
   home.username = "dvt";
   home.homeDirectory = "/home/dvt";
   home.enableNixpkgsReleaseCheck = false;
-  home.stateVersion = osConfig.system.stateVersion;
+  home.stateVersion = "25.11";
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
