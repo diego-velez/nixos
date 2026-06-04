@@ -1,6 +1,16 @@
 {
   programs.fish = {
     enable = true;
+
+    binds = {
+      "ctrl+d" = {
+        name = "\\cd";
+        command = "";
+        mode = "insert";
+        silent = true;
+      };
+    };
+
     interactiveShellInit = ''
       # Disable welcome message
       set fish_greeting
