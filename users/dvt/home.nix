@@ -128,7 +128,6 @@ in
     kanata
     wl-gammarelay-rs
     jupyter
-    antigravity-fhs
     heroic
   ];
 
