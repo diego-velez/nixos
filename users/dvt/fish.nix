@@ -60,47 +60,53 @@
     };
   };
 
-  xdg.configFile."fish/fish_variables".text = ''
-    # This file contains fish universal variable definitions.
-    # VERSION: 3.0
-    SETUVAR __fish_initialized:3800
-    SETUVAR fish_color_autosuggestion:6272a4
-    SETUVAR fish_color_cancel:ff5555\x1e\x2d\x2dreverse
-    SETUVAR fish_color_command:8be9fd
-    SETUVAR fish_color_comment:6272a4
-    SETUVAR fish_color_cwd:50fa7b
-    SETUVAR fish_color_cwd_root:red
-    SETUVAR fish_color_end:ffb86c
-    SETUVAR fish_color_error:ff5555
-    SETUVAR fish_color_escape:ff79c6
-    SETUVAR fish_color_history_current:\x2d\x2dbold
-    SETUVAR fish_color_host:bd93f9
-    SETUVAR fish_color_host_remote:bd93f9
-    SETUVAR fish_color_keyword:ff79c6
-    SETUVAR fish_color_normal:f8f8f2
-    SETUVAR fish_color_operator:50fa7b
-    SETUVAR fish_color_option:ffb86c
-    SETUVAR fish_color_param:bd93f9
-    SETUVAR fish_color_quote:f1fa8c
-    SETUVAR fish_color_redirection:f8f8f2
-    SETUVAR fish_color_search_match:\x2d\x2dbold\x1e\x2d\x2dbackground\x3d44475a
-    SETUVAR fish_color_selection:\x2d\x2dbold\x1e\x2d\x2dbackground\x3d44475a
-    SETUVAR fish_color_status:ff5555
-    SETUVAR fish_color_user:8be9fd
-    SETUVAR fish_color_valid_path:\x2d\x2dunderline\x3dsingle
-    SETUVAR fish_key_bindings:fish_default_key_bindings
-    SETUVAR fish_pager_color_background:\x1d
-    SETUVAR fish_pager_color_completion:f8f8f2
-    SETUVAR fish_pager_color_description:6272a4
-    SETUVAR fish_pager_color_prefix:8be9fd
-    SETUVAR fish_pager_color_progress:6272a4
-    SETUVAR fish_pager_color_secondary_background:\x1d
-    SETUVAR fish_pager_color_secondary_completion:\x1d
-    SETUVAR fish_pager_color_secondary_description:\x1d
-    SETUVAR fish_pager_color_secondary_prefix:\x1d
-    SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d44475a
-    SETUVAR fish_pager_color_selected_completion:f8f8f2
-    SETUVAR fish_pager_color_selected_description:6272a4
-    SETUVAR fish_pager_color_selected_prefix:8be9fd
+  xdg.configFile."fish/conf.d/fish_frozen_theme.fish".text = ''
+    # This file was created by fish when upgrading to version 4.3, to migrate
+    # theme variables from universal to global scope.
+    # Don't edit this file, as it will be written by the web-config tool (`fish_config`).
+    # To customize your theme, delete this file and see
+    #     help interactive#syntax-highlighting
+    # or
+    #     man fish-interactive | less +/^SYNTAX.HIGHLIGHTING
+    # for appropriate commands to add to ~/.config/fish/config.fish instead.
+    # See also the release notes for fish 4.3.0 (run `help relnotes`).
+
+    set --global fish_color_autosuggestion 6272a4
+    set --global fish_color_cancel ff5555 --reverse
+    set --global fish_color_command 8be9fd
+    set --global fish_color_comment 6272a4
+    set --global fish_color_cwd 50fa7b
+    set --global fish_color_cwd_root red
+    set --global fish_color_end ffb86c
+    set --global fish_color_error ff5555
+    set --global fish_color_escape ff79c6
+    set --global fish_color_history_current --bold
+    set --global fish_color_host bd93f9
+    set --global fish_color_host_remote bd93f9
+    set --global fish_color_keyword ff79c6
+    set --global fish_color_normal f8f8f2
+    set --global fish_color_operator 50fa7b
+    set --global fish_color_option ffb86c
+    set --global fish_color_param bd93f9
+    set --global fish_color_quote f1fa8c
+    set --global fish_color_redirection f8f8f2
+    set --global fish_color_search_match --bold --background=44475a
+    set --global fish_color_selection --bold --background=44475a
+    set --global fish_color_status ff5555
+    set --global fish_color_user 8be9fd
+    set --global fish_color_valid_path --underline=single
+    set --global fish_pager_color_background
+    set --global fish_pager_color_completion f8f8f2
+    set --global fish_pager_color_description 6272a4
+    set --global fish_pager_color_prefix 8be9fd
+    set --global fish_pager_color_progress 6272a4
+    set --global fish_pager_color_secondary_background
+    set --global fish_pager_color_secondary_completion
+    set --global fish_pager_color_secondary_description
+    set --global fish_pager_color_secondary_prefix
+    set --global fish_pager_color_selected_background --background=44475a
+    set --global fish_pager_color_selected_completion f8f8f2
+    set --global fish_pager_color_selected_description 6272a4
+    set --global fish_pager_color_selected_prefix 8be9fd
   '';
 }
