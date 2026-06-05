@@ -35,8 +35,8 @@ let
   };
   setWallpaper = pkgs.writeShellApplication {
     name = "set-wallpaper";
-    runtimeInputs = [
-      pkgsUnstable.awww
+    runtimeInputs = with pkgs; [
+      awww
     ];
     text = builtins.readFile ./scripts/set-wallpaper.sh;
   };
@@ -128,8 +128,8 @@ in
     kanata
     wl-gammarelay-rs
     jupyter
-    pkgsUnstable.antigravity-fhs
-    pkgsUnstable.heroic
+    antigravity-fhs
+    heroic
 
     # Programming
     tree-sitter

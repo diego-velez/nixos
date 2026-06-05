@@ -178,8 +178,8 @@
     mangohud
     mangojuice
     obs-studio
-    pkgsUnstable.nodejs
-    pkgsUnstable.gimp
+    nodejs
+    gimp
     file-roller
     p7zip
   ];
