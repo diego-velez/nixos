@@ -30,6 +30,9 @@
   services.xserver.enable = true;
 
   services.displayManager.gdm.enable = true;
+  # NOTE: This is needed because there is a bug with GDM 50 in NixOS
+  # See https://github.com/NixOS/nixpkgs/issues/523332#issuecomment-4531736560
+  services.displayManager.defaultSession = "niri";
 
   services.xserver.xkb = {
     layout = "us";
