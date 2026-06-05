@@ -130,41 +130,48 @@ in
     jupyter
     antigravity-fhs
     heroic
-
-    # Programming
-    tree-sitter
-    gcc
-    gnumake
-
-    # TODO: use home-manager's `programs.neovim` to setup instead,
-    # and I could add these packages only to is with its `extraPackages` option.
-    # Neovim LSPs, formatters and linters
-    lua-language-server
-    stylua
-    gopls
-    golangci-lint
-    tinymist
-    asm-lsp
-    nixd
-    nixfmt
-    basedpyright
-    ruff
-    jq
-    google-java-format
-    templ
-    prettier
-    pgformatter
-    hclfmt
-    biome
-    actionlint
-    libclang
-    bash-language-server
-    (callPackage ./kotlin-lsp.nix { })
-    jdk
-    typescript-language-server
   ];
 
   home.shell.enableShellIntegration = true;
+
+  programs.neovim = {
+    enable = true;
+    package = pkgsUnstable.neovim-unwrapped;
+    defaultEditor = true;
+    sideloadInitLua = true;
+    withRuby = false; # To silence warnings
+    withPython3 = false; # To silence warnings
+    extraPackages = with pkgs; [
+      # Programming
+      tree-sitter
+      gcc
+      gnumake
+      # Neovim LSPs, formatters and linters
+      lua-language-server
+      stylua
+      gopls
+      golangci-lint
+      tinymist
+      asm-lsp
+      nixd
+      nixfmt
+      basedpyright
+      ruff
+      jq
+      google-java-format
+      templ
+      prettier
+      pgformatter
+      hclfmt
+      biome
+      actionlint
+      libclang
+      bash-language-server
+      (callPackage ./kotlin-lsp.nix { })
+      jdk
+      typescript-language-server
+    ];
+  };
 
   # We want this for automatic sourcing of dev shell when cd'ing into project with .envrc
   programs.direnv = {
@@ -566,7 +573,6 @@ in
   #  /etc/profiles/per-user/dvt/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
     FZF_DEFAULT_OPTS = "--layout=reverse";
     TERMINAL = "ghostty";
     JAVA_HOME = "${pkgs.jdk}";

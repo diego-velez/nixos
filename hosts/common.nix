@@ -134,13 +134,6 @@
     wget
     ripgrep
     git
-    (pkgsUnstable.neovim.overrideAttrs (oldAttrs: {
-      postInstall = (oldAttrs.postInstall or "") + ''
-        substituteInPlace $out/share/applications/nvim.desktop \
-          --replace "Exec=nvim %F" "Exec=ghostty -e nvim %F" \
-          --replace "Terminal=true" "Terminal=false"
-      '';
-    }))
     wezterm
     waybar
     fuzzel
