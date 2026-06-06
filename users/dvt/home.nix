@@ -434,12 +434,12 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       github = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "${config.home.homeDirectory}/.ssh/github";
-        identitiesOnly = true;
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "${config.home.homeDirectory}/.ssh/github";
+        IdentitiesOnly = true;
       };
     };
   };
