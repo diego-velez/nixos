@@ -178,6 +178,7 @@
     gimp
     file-roller
     p7zip
+    lmstudio
   ];
 
   services.tumbler.enable = true;
