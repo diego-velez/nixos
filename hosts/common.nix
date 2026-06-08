@@ -179,6 +179,7 @@
     file-roller
     p7zip
     lmstudio
+    unzip
   ];
 
   services.tumbler.enable = true;
