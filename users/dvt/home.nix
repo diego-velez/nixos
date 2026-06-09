@@ -129,6 +129,7 @@ in
     wl-gammarelay-rs
     jupyter
     heroic
+    devenv
   ];
 
   home.shell.enableShellIntegration = true;

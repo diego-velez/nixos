@@ -1,4 +1,9 @@
 {
+  lib,
+  pkgs,
+  ...
+}:
+{
   programs.fish = {
     enable = true;
 
@@ -22,6 +27,9 @@
       set fish_cursor_insert line
 
       ${builtins.readFile ./fish/fish_title.fish}
+
+      # TODO: Just use HM after https://github.com/nix-community/home-manager/pull/9379 is merged
+      ${lib.getExe pkgs.devenv} hook fish | source
     '';
 
     shellAliases = {
