@@ -1,15 +1,24 @@
+# Directories to search within
 DIRS=(
     "$HOME/projects"
     "$HOME/Sync/Courses/*/"
+)
+
+# Raw directories to use. They must be relative to "$HOME" but not include it.
+EXTRA_DIRS=(
+    "nixos"
 )
 
 # This skips fzf and just opens/moves to that project space
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path --base-directory "$HOME" \
-        | sed "s|^$HOME/||" \
-        | fzf)
+    selected=$(
+        { printf '%s\n' "${EXTRA_DIRS[@]}"; \
+          fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path --base-directory "$HOME" \
+              | sed "s|^$HOME/||"; } \
+        | fzf
+    )
 
     # Add home path back
     if [[ -n "$selected" ]]; then
