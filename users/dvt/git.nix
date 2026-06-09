@@ -1,11 +1,10 @@
-{ ... }:
 {
   programs.git = {
     enable = true;
 
     signing = {
       key = "~/.ssh/github";
-      signByDefault = false;
+      signByDefault = true;
     };
 
     settings = {
