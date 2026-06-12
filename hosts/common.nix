@@ -180,6 +180,8 @@
     p7zip
     lmstudio
     unzip
+    godot
+    blender
   ];
 
   services.tumbler.enable = true;
