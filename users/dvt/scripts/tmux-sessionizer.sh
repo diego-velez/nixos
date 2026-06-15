@@ -28,7 +28,13 @@ fi
 
 # Quit if nothing selected
 if [[ -z "$selected" ]]; then
+    echo "Exiting, nothing selected..."
     exit 0
+fi
+
+if [[ ! -d "$selected" ]]; then
+    echo "Directory $selected does not exist!"
+    exit 1
 fi
 
 selected_name=$(basename "$selected" | tr . _)
