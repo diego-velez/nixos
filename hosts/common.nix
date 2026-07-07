@@ -182,6 +182,7 @@
     unzip
     godot
     blender
+    libheif
   ];
 
   services.tumbler.enable = true;
