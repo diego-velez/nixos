@@ -19,6 +19,7 @@
         home-manager.follows = "home-manager";
       };
     };
+    zapp.url = "github:zsa/zapp";
   };
 
   outputs =
@@ -27,6 +28,7 @@
       nixpkgs-unstable,
       disko,
       home-manager,
+      zapp,
       ...
     }@inputs:
     let
@@ -70,6 +72,9 @@
               };
             }
             disko.nixosModules.disko
+            # ZSA's CLI flashing tool (https://github.com/zsa/zapp)
+            zapp.nixosModules.default
+            { programs.zapp.enable = true; }
           ];
         };
     in
